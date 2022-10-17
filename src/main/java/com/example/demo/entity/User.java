@@ -1,5 +1,6 @@
 package com.example.demo.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,6 +14,7 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	
 	
 	private String username;
 	private String email;
@@ -80,3 +82,4 @@ public class User {
 	// ... generate Getters and Setters
 	
 }
+

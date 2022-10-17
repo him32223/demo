@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -54,6 +55,12 @@ public class controller {
 		   // post method to process registration
 		@PostMapping("/process_signup")
 		public String registerUser(Model model, @ModelAttribute("user") User user) {
+			
+			BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+			String encodedPassword = user.getPassword();
+			user.setPassword(encodedPassword);
+			
+			
 			
 			System.out.println("username:" + user.getUsername());
 			System.out.println("email:" + user.getEmail());
