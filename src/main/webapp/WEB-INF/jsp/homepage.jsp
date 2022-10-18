@@ -9,9 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
   </head>
   <body>
-    <form class="mb-4" action="/process_signup" method="post" modelattribute="user">
-        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-    <div class="card mt-5" style="width: 20rem; margin: auto;">
+   
         <div class="card-body text-center">
             <form class="mb-4">
                 
