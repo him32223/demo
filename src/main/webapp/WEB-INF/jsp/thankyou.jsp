@@ -12,7 +12,7 @@
         <div class="text-center">
             <p class="fs-3">Thank you for register with us.</p>
             <p class="lead">Please login using our sign in page. You will be re-direct to sign page in <span id="count">5</span></p>
-            <p><a href="/stores" class="btn btn-primary">Sign In</a></p>
+            <p><a href="signin.jsp" class="btn btn-primary">Sign In</a></p>
         </div>
     </div>
 	
@@ -28,7 +28,7 @@
     	setInterval(() => {
          document.getElementById('count').textContent = count;
     		count--;
-    		if(count < 1) location.replace('http://localhost:8080/signin');
+    		if(count < 1) location.replace('http://localhost:8080/signin.jsp');
     	}, 1000);
     </script>
     <script src="https://kit.fontawesome.com/e19fcdf015.js" crossorigin="anonymous"></script>

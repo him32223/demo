@@ -57,7 +57,7 @@ public class controller {
 		public String register(Model model, @ModelAttribute("user") User user) {
 			
 			BCryptPasswordEncoder PasswordEncoder = new BCryptPasswordEncoder();
-			String encodedPassword = user.getPassword();
+			String encodedPassword = PasswordEncoder.encode(user.getPassword());
 			user.setPassword(encodedPassword);
 			
 			Service.saveUser(user);

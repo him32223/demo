@@ -29,7 +29,7 @@
                     <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
                 </div>
                 <div class="form-group d-grid gap-2">
-                    <button  class="btn btn-success w-100"><a href=thankyou.jsp></a> sign up with email</button>
+                    <button  class="btn btn-success w-100"><a href='/thankyou'></a> sign up with email</button>
 
                 </div>
            
