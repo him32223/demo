@@ -29,11 +29,14 @@
                     <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
                 </div>
                 <div class="form-group d-grid gap-2">
-                    <button  class="btn btn-success w-100"><a href='/thankyou'></a> sign up with email</button>
+                    <button class="btn btn-success w-100" onclick=document.location='/signin'>Sign in</button>
+                    <button  class="btn btn-success w-100"><a href='/thankyou'></a>Sign Up</button>
 
                 </div>
+             
            
             </form>
+            
         </div>
     </div>
 
