@@ -26,6 +26,7 @@ public class User {
 	private String country;
 	public Integer getId() {
 		return id;
+		// ... generate Getters and Setters
 	}
 	public void setId(Integer id) {
 		this.id = id;
@@ -79,7 +80,33 @@ public class User {
 		this.country = country;
 	}
 	
-	// ... generate Getters and Setters
 	
-}
+	
+	
+	//verification entity
+
+	@Column(name = "verification_code", length = 64)
+	  private String verificationCode;
+	   
+	  private boolean enabled;
+	  
+	// other fields, getters and setters are not shown
+
+		public String getVerificationCode() {
+			return verificationCode;
+		}
+		public void setVerificationCode(String verificationCode) {
+			this.verificationCode = verificationCode;
+		}
+		public boolean isEnabled() {
+			return enabled;
+		}
+		public void setEnabled(boolean enabled) {
+			this.enabled = enabled;
+		}
+
+	  
+	}
+
+
 
