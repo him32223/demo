@@ -11,7 +11,7 @@
   <body>
     <nav class="navbar navbar-expand-sm navbar-light bg-light fixed-top">
         <div class="container">
-            <span class="navbar-brand mt-1 h1">Linked<span class="text-primary">Me</span>In</span>
+            <span class="navbar-brand mt-1 h1">de<span class="text-primary">Mo</span></span>
 
             <button type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" class="navbar-toggler" 
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle Navigation"><span class="navbar-toggler-icon"></span></button>
@@ -33,19 +33,19 @@
                 </ul>
             </div>
 
-            <ul class="navbar-nav me-2 my-2 my-lg-0 navbar-nav-scroll" modelattribute="loggedinuser" style="--bs-scroll-height: 100px;">
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  @<c:out value="${pageContext.request.remoteUser}" />
-                </a>
-                <ul class="dropdown-menu dropdown-menu-lg-end" >
-                  <li><a class="dropdown-item" href="/profile?id=${loggedinuser.id}">Profile</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="/settings">Settings</a></li>
-                  <li><a class="dropdown-item" href="/dashboard">Dashboard</a></li>
-                </ul>
-              </li>
-      </ul>
+           <ul class="navbar-nav me-2 my-2 my-lg-0 navbar-nav-scroll" modelattribute="loggedinuser" style="--bs-scroll-height: 100px;">
+                            <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                @<c:out value="${pageContext.request.remoteUser}" />
+                              </a>
+                              <ul class="dropdown-menu dropdown-menu-lg-end" >
+                                <li><a class="dropdown-item" href="/profile?id=${loggedinuser.id}">Profile</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="/settings">Settings</a></li>
+                                <li><a class="dropdown-item" href="/dashboard">Dashboard</a></li>
+                              </ul>
+                            </li>
+                    </ul>
             <button type="button" class="btn btn-danger">Logout</button>
         </div>
 
@@ -103,10 +103,9 @@
       <div class="container">
         <div class="row">
           <div class="col-8 d-flex justify-content-start">
-            <span>&copy; 2022. <a href="#">LinkedMeIn</a> portal.<br/>
-              Made with <i class="fa-solid fa-heart"></i> in Penang.<br/>
+            <span>&copy; 2022.
               <i class="fa-brands fa-github"></i>
-              <a href="https://github.com/hadrihl/linkedmein"> linkedmein</a>
+              <a href="https://github.com/him32223/demo">demo</a>
             </span>
           </div>
 

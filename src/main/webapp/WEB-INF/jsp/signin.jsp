@@ -40,10 +40,9 @@
 					</div>
 				</c:if>
 				
-                <footer class="mt-5 text-muted">&copy; 2022. <a href="/">OneStopGroceries</a> portal.<br/>
-                    Made with <i class="fa-solid fa-heart"></i> in Penang.<br/>
+                <footer class="mt-5 text-muted">&copy; 2022.
                     <i class="fa-brands fa-github"></i>
-                    <a href="https://github.com/hadrihl/onestopgroceries"> onestopgroceries</a>
+                    <a href="https://github.com/him32223/demo">demo</a>
                 </footer>
             </div>
         </div>
