@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.entity.Service;
 import com.example.demo.entity.User;
@@ -59,11 +60,20 @@ public class controller {
 			
 			//retrieve loggedinuser id
 			User loggedInUser = Service.getUserByUsername(username);
-			model.addAttribute("loggedinuser", loggedInUser);
+			model.addAttribute("person", loggedInUser);
 			
 			
 			return "dashboard";
 		}
+		
+		//get profile page
+		@GetMapping("/profile")
+		public String getProfilePage(Model model, @RequestParam("id") Integer user_id) {
+			User user = Service.getUserById(user_id);
+			model.addAttribute("user", user);
+			return "profile";
+		}
+		
 		   
 		// post method to process registration
 		@PostMapping("/process_signup")
@@ -78,17 +88,21 @@ public class controller {
 			return "thankyou";
 		}
 		@PostMapping("/update-profile")
-		public String profilePage(Model model, @ModelAttribute("user") User tmp) {
-			User user = Service.getUserById(tmp.getId());
-
-			// set all information (from jsp) to user object. 
-			user.setFirstname(tmp.getFirstname());
-			user.setLastname(tmp.getLastname());
-			user.setCompany(tmp.getCompany());
-			user.setCity(tmp.getCity());
-			user.setCountry(tmp.getCountry());
-
-	                Service.saveUser(user);
+		public String profilePage(Model model, @ModelAttribute("user") User tmp,  @RequestParam("id") Integer user_id) {
+			
+			User user = Service.getUserById(user_id); //get user by id
+			String query ="insert into user(firstname, lastname) values (?,?,?)";
+			
+			
+			user.setFirstname("firstname");
+			
+			
+			
+				
+				//save into database
+	        Service.saveUser(user);
 			return "profile";
 		}
+		
+		
 }
