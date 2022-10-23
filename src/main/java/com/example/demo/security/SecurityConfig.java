@@ -49,7 +49,6 @@ public class SecurityConfig {
 				.antMatchers(HttpMethod.GET, "/signup").permitAll()
 				.antMatchers(HttpMethod.GET, "/homepage").permitAll()
 				.antMatchers(HttpMethod.GET, "/thankyou").permitAll()
-				.antMatchers(HttpMethod.GET, "/profile").permitAll()
 				.antMatchers(HttpMethod.POST, "/process_signup").permitAll()
 				.anyRequest().authenticated()
 				.and()

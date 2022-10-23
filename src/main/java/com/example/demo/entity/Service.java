@@ -33,12 +33,5 @@ public class Service {
 			return userRepository.findAll();
 		}
 		
-		public User getUserByUsername(String username) {
-			return userRepository.findUserByUsername(username);
-		}
-		
-		public User getUserById(Integer id) {
-			return userRepository.findById(id).get();
-		}
 
 }
