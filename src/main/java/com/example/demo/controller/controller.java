@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -20,7 +22,7 @@ public class controller {
 	// get homepage
 		@GetMapping("/")
 		public String homepage() {
-			return "homepage";
+			return "signup";
 		}
 		
 		// get about page
@@ -49,7 +51,9 @@ public class controller {
 		
 		// get dashboard page
 		@GetMapping("/dashboard")
-		public String getDashboardPage() {
+		public String getDashboardPage(Model model) {
+			List<User> users = Service.retrieveAllUserProfile();
+			model.addAttribute("users", users);
 			return "dashboard";
 		}
 		   // post method to process registration
@@ -64,6 +68,6 @@ public class controller {
 			
 			return "thankyou";
 		}
-
+		
 
 }
