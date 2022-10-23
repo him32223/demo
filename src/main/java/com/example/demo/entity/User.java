@@ -1,4 +1,8 @@
+
 package com.example.demo.entity;
+
+
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -6,7 +10,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
 @Entity
 @Table(name = "user")
 public class User {
@@ -14,7 +17,6 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
 	
 	private String username;
 	private String email;
@@ -24,9 +26,15 @@ public class User {
 	private String company;
 	private String city;
 	private String country;
+
+	@Column(name = "verification_code", length = 64)
+	private String verificationCode;
+
+	private boolean enabled;
+
+	// Generate Getters and Setters
 	public Integer getId() {
 		return id;
-		// ... generate Getters and Setters
 	}
 	public void setId(Integer id) {
 		this.id = id;
@@ -79,34 +87,16 @@ public class User {
 	public void setCountry(String country) {
 		this.country = country;
 	}
-	
-	
-	
-	
-	//verification entity
-
-	@Column(name = "verification_code", length = 64)
-	  private String verificationCode;
-	   
-	  private boolean enabled;
-	  
-	// other fields, getters and setters are not shown
-
-		public String getVerificationCode() {
-			return verificationCode;
-		}
-		public void setVerificationCode(String verificationCode) {
-			this.verificationCode = verificationCode;
-		}
-		public boolean isEnabled() {
-			return enabled;
-		}
-		public void setEnabled(boolean enabled) {
-			this.enabled = enabled;
-		}
-
-	  
+	public String getVerificationCode() {
+		return verificationCode;
 	}
-
-
-
+	public void setVerificationCode(String verificationCode) {
+		this.verificationCode = verificationCode;
+	}
+	public boolean isEnabled() {
+		return enabled;
+	}
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+}

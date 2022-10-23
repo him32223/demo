@@ -56,26 +56,9 @@ public class controller {
 			return "signup";
 		}
 		
-		// get dashboard page
-		@GetMapping("/dashboard")
-		public String getDashboardPage(Model model, @CurrentSecurityContext(expression = "authentication?.name") String username) {
-			List<User> users = Service.retrieveAllUserProfile();
-			model.addAttribute("users", users);
-			
-			//retrieve loggedinuser id
-			User loggedInUser = Service.getUserByUsername(username);
-			model.addAttribute("loggedinuser", loggedInUser);
-			
-			return "dashboard";
-		}
 		
-		@GetMapping("/profile")
-		public String profilePage(Model model, @RequestParam("id") Integer id) {
-			User user = Service.getUserById(id);
-			model.addAttribute("user", user);
-			return "profile";
-		}
-
+		
+	
     // post method to process registration
 @PostMapping("/process_signup")
 public String registerUser(Model model, @ModelAttribute("user") User user, HttpServletRequest request)
@@ -86,27 +69,20 @@ public String registerUser(Model model, @ModelAttribute("user") User user, HttpS
 			
 }
 
-// post method to process registration
-	@PostMapping("/update-profile")
-	public String UpdateUser(Model model, @ModelAttribute("user") User user){	
-		Service.updateUserProfile(user); // we dont have any checking if user exist for now, but later
-		return "redirect:dashboard";
-				
+
+
+	private String getSiteURL(HttpServletRequest request) {
+		String siteURL = request.getRequestURL().toString();
+		return siteURL.replace(request.getServletPath(), "");
 	}
 
-private String getSiteURL(HttpServletRequest request) {
-    String siteURL = request.getRequestURL().toString();
-    return siteURL.replace(request.getServletPath(), "");
-}  
- 
-@GetMapping("/verify")
-public String verifyUser(@Param("code") String code) {
-    if (Service.verify(code)) {
-        return "verify_success";
-    } else {
-    	
-    }
-        return "verify_fail";
-}
+	@GetMapping("/verify")
+	public String verifyUser(@Param("code") String code) {
+		if(Service.verify(code)) {
+			return "verify_success";
+		} else {
+			return "verify_fail";
+		}
+	}
 }
     

@@ -19,8 +19,8 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 	
 public void save(UserRepository user);
 	
-	@Query("SELECT u FROM User u WHERE u.verificationCode = ?1")
-    public User findByVerificationCode(String code);
+		@Query("SELECT u FROM User u WHERE u.verificationCode = ?1")
+		public User findUserByVerificationCode(String code);
 	
 	@Query("SELECT u FROM User u WHERE u.username =:username")
 	public User findUserByUsername(String username);
