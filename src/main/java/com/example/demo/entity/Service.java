@@ -10,6 +10,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @org.springframework.stereotype.Service
 @Transactional
@@ -32,6 +35,17 @@ public class Service {
 		public List<User> retrieveAllUserProfile() {
 			return userRepository.findAll();
 		}
+		
+		public User getUserByUsername(String username) {
+			return userRepository.findUserByUsername(username);
+		}
+		public User getUserById(Integer id) {
+			return userRepository.findById(id).get();
+		}
+		
+
+
+		
 		
 
 }
