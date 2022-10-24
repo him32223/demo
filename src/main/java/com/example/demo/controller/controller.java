@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.entity.Service;
 import com.example.demo.entity.User;
+import com.example.demo.entity.UserRepository;
 
 @Controller
 public class controller {
@@ -56,22 +57,36 @@ public class controller {
 			return "signup";
 		}
 		
-		
-		
-	
-    // post method to process registration
-@PostMapping("/process_signup")
-public String registerUser(Model model, @ModelAttribute("user") User user, HttpServletRequest request)
-		throws UnsupportedEncodingException, MessagingException
-{	
-	Service.register(user, getSiteURL(request)); // we dont have any checking if user exist for now, but later
-	return "thankyou";
+
+// get dashboard page
+		@GetMapping("/dashboard")
+		public String getDashboardPage(Model model, @CurrentSecurityContext(expression = "authentication?.name") String username) {
+			List<User> users = Service.retrieveAllUserProfile();
+			model.addAttribute("users", users);
 			
-}
+			//retrieve loggedinuser id
+			User loggedInUser = Service.getUserByUsername(username);
+			model.addAttribute("loggedinuser", loggedInUser);
+			
+			
+			return "dashboard";
+		}
+		   
 
-
-
-	private String getSiteURL(HttpServletRequest request) {
+// post method to process registration
+		@PostMapping("/process_signup")
+		public String register(Model model, @ModelAttribute("user") User user) {
+			
+			BCryptPasswordEncoder PasswordEncoder = new BCryptPasswordEncoder();
+			String encodedPassword = PasswordEncoder.encode(user.getPassword());
+			user.setPassword(encodedPassword);
+			
+			Service.saveUser(user);
+			
+			return "thankyou";
+		}
+    
+    	private String getSiteURL(HttpServletRequest request) {
 		String siteURL = request.getRequestURL().toString();
 		return siteURL.replace(request.getServletPath(), "");
 	}
@@ -84,5 +99,8 @@ public String registerUser(Model model, @ModelAttribute("user") User user, HttpS
 			return "verify_fail";
 		}
 	}
-}
+  }
+
     
+
+  
