@@ -88,21 +88,21 @@ public class controller {
 			return "thankyou";
 		}
 		@PostMapping("/update-profile")
-		public String profilePage(Model model, @ModelAttribute("user") User tmp,  @RequestParam("id") Integer user_id) {
-			
-			User user = Service.getUserById(user_id); //get user by id
-			String query ="insert into user(firstname, lastname) values (?,?,?)";
-			
-			
-			user.setFirstname("firstname");
-			
-			
-			
-				
-				//save into database
+	    public String updateUserProfile(Model model, @ModelAttribute("user") User tmp, @RequestParam("id") Integer user_id) {
+	        User user = Service.getUserById(user_id);
+
+	        user.setFirstname(tmp.getFirstname());
+	        user.setLastname(tmp.getLastname());
+	        user.setCompany(tmp.getCompany());
+	        user.setCity(tmp.getCity());
+	        user.setCountry(tmp.getCountry());
+
 	        Service.saveUser(user);
-			return "profile";
-		}
-		
+
+	        return "redirect:dashboard";
+	    }
+			
+			
+			
 		
 }

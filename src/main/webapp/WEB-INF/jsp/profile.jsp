@@ -51,7 +51,7 @@
 
     <div class="mb-3">
       <label class="form-label">*Username: </label>
-      <input  class="form-control" name="username" id="username" value="${user.username}" aria-label="username"
+      <input type="text" class="form-control" name="username" id="username" value="${user.username}" aria-label="username"
        />
     </div>
 
