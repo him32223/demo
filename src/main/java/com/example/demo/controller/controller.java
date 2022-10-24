@@ -126,6 +126,17 @@ public class controller {
 	        return "redirect:dashboard";
 	    
 	}
+	
+	@PostMapping("/dashboard")
+	public void search(Model model, HttpServletRequest request) {
+		String keyword = request.getParameter("keyword");
+		List<User> users = Service.search(keyword);
+		Integer count = users.size();
+		
+		model.addAttribute("count", count);
+		model.addAttribute("users", users);
+		//return "dashboard";
+	}
 }
 			
 

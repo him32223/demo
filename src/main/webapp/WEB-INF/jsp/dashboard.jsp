@@ -32,6 +32,18 @@
                     </li>
                 </ul>
             </div>
+            <section>
+              <div class="container mt-3">
+              <c:url var="search_url" value="/dashboard" />
+              <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+                        <form:form role="search" action="${search_url}" method="post">
+                            <div class="input-group">
+                                  <input class="form-control" name="keyword" type="search" placeholder="Search" aria-label="Search">
+                                  <button class="btn btn-success me-2" type="submit">Search</button>
+                            </div>
+                        </form:form>
+                </div>
+            </section>
 
             <ul class="navbar-nav me-2 my-2 my-lg-0 navbar-nav-scroll" modelattribute="person" style="--bs-scroll-height: 100px;">
               <li class="nav-item dropdown">
