@@ -32,6 +32,7 @@
                 </div>
                 <div class="form-group d-grid gap-2">
                     <button type="submit" class="btn btn-success w-100"> Sign in with Email</button>
+                    <button onclick=document.location='/signup' class="btn btn-success w-100"> Sign up with Email</button>
                 </div>
                 
                 <c:if test="${error_string != null}">

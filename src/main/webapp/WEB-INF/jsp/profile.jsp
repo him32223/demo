@@ -46,7 +46,7 @@
       	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
     <div class="mb-3">
       <label class="form-label">ID: </label>
-      <input class="form-control" name="id" value="${user.id}" aria-label="Store ID" readonly="true" />
+      <input class="form-control" name="id" value="${user.id}" aria-label="Store ID" readonly="true"/>
     </div>
 
     <div class="mb-3">

@@ -94,6 +94,22 @@ public class controller {
 			
 			return "thankyou";
 		}
+		
+		private String getSiteURL(HttpServletRequest request) {
+			String siteURL = request.getRequestURL().toString();
+			return siteURL.replace(request.getServletPath(), "");
+		}
+
+		@GetMapping("/verify")
+		public String verifyUser(@Param("code") String code) {
+			if(Service.verify(code)) {
+				return "verify_success";
+			} else {
+				return "verify_fail";
+			}
+		}
+	  
+
 
 	@PostMapping("/update-profile")
 	    public String updateUserProfile(Model model, @ModelAttribute("user") User tmp, @RequestParam("id") Integer user_id) {
@@ -108,24 +124,10 @@ public class controller {
 	        Service.saveUser(user);
 
 	        return "redirect:dashboard";
-	    }
-			
-			
-			
-
-
-
-	private String getSiteURL(HttpServletRequest request) {
-		String siteURL = request.getRequestURL().toString();
-		return siteURL.replace(request.getServletPath(), "");
+	    
 	}
+}
+			
 
-	@GetMapping("/verify")
-	public String verifyUser(@Param("code") String code) {
-		if(Service.verify(code)) {
-			return "verify_success";
-		} else {
-			return "verify_fail";
-		}
-	}
-  }
+
+

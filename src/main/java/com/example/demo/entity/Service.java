@@ -82,7 +82,7 @@ public class Service {
 		throws MessagingException, UnsupportedEncodingException {
 
 		String toAddress = user.getEmail();
-		String fromAddress = "hadrihilmi@gmail.com";
+		String fromAddress = "wko.007007@gmail.com";
 		String senderName = "LinkedMeIn";
 		String subject = "LinkedMeIn - Verify your Registration";
 
@@ -121,5 +121,4 @@ public class Service {
 			return true;
 		}
 	}
-
 }
