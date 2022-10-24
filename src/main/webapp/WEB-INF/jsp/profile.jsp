@@ -43,8 +43,7 @@
     <section class="container col-lg-4" style="margin-top: 100px;">
 
    <form class="form-group" action="/update-profile" method="post" modelAttribute="user">
-      	<input type="hidden" name="${_csrf.parameterName}"
-						value="${_csrf.token}" />
+      	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
     <div class="mb-3">
       <label class="form-label">ID: </label>
       <input class="form-control" name="id" value="${user.id}" aria-label="Store ID" readonly="true" />
@@ -52,37 +51,44 @@
 
     <div class="mb-3">
       <label class="form-label">*Username: </label>
-      <input type="email" class="form-control" name="username" id="username" value="${user.username}" aria-label="username" required />
+      <input type="text" class="form-control" name="username" id="username" value="${user.username}" aria-label="username"
+       />
     </div>
 
     <div class="mb-3">
       <label class="form-label">*Email: </label>
-      <input type="email" class="form-control" name="email" id="email" value="${user.email}" aria-label="email" required />
+      <input type="email" class="form-control" name="email" id="email" value="${user.email}" aria-label="email"
+       />
     </div>
 
     <div class="mb-3">
       <label class="form-label">*First Name: </label>
-      <input class="form-control" name="firstname" id="firstname" value="${user.firstname}" aria-label="first name" required />
+      <input class="form-control" name="firstname" id="firstname" value="${user.firstname}" aria-label="first name"
+       />
     </div>
 
     <div class="mb-3">
       <label class="form-label">*Last Name: </label>
-      <input class="form-control" name="lastname" id="lastname" value="${user.lastname}" aria-label="last name" required />
+      <input class="form-control" name="lastname" id="lastname" value="${user.lastname}" aria-label="last name"
+       />
     </div>
 
     <div class="mb-3">
       <label class="form-label">*Company: </label>
-      <input class="form-control" name="company" id="company" value="${user.company}" aria-label="company" required />
+      <input class="form-control" name="company" id="company" value="${user.company}" aria-label="company"
+       />
     </div>
 
     <div class="mb-3">
       <label class="form-label">*City: </label>
-      <input class="form-control" name="city" id="city" value="${user.city}" aria-label="country" required />
+      <input class="form-control" name="city" id="city" value="${user.city}" aria-label="country"
+       />
     </div>
 
     <div class="mb-3">
       <label class="form-label">*Country: </label>
-      <input class="form-control" name="country" id="country" value="${user.country}" aria-label="country" required />
+      <input class="form-control" name="country" id="country" value="${user.country}" aria-label="country"
+       />
     </div>
     
     <div class="mb-3">

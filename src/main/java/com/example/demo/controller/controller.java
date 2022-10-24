@@ -66,11 +66,20 @@ public class controller {
 			
 			//retrieve loggedinuser id
 			User loggedInUser = Service.getUserByUsername(username);
-			model.addAttribute("loggedinuser", loggedInUser);
+			model.addAttribute("person", loggedInUser);
 			
 			
 			return "dashboard";
 		}
+		
+		//get profile page
+		@GetMapping("/profile")
+		public String getProfilePage(Model model, @RequestParam("id") Integer user_id) {
+			User user = Service.getUserById(user_id);
+			model.addAttribute("user", user);
+			return "profile";
+		}
+		
 		   
 
 // post method to process registration
@@ -85,8 +94,28 @@ public class controller {
 			
 			return "thankyou";
 		}
-    
-    	private String getSiteURL(HttpServletRequest request) {
+
+	@PostMapping("/update-profile")
+	    public String updateUserProfile(Model model, @ModelAttribute("user") User tmp, @RequestParam("id") Integer user_id) {
+	        User user = Service.getUserById(user_id);
+
+	        user.setFirstname(tmp.getFirstname());
+	        user.setLastname(tmp.getLastname());
+	        user.setCompany(tmp.getCompany());
+	        user.setCity(tmp.getCity());
+	        user.setCountry(tmp.getCountry());
+
+	        Service.saveUser(user);
+
+	        return "redirect:dashboard";
+	    }
+			
+			
+			
+
+
+
+	private String getSiteURL(HttpServletRequest request) {
 		String siteURL = request.getRequestURL().toString();
 		return siteURL.replace(request.getServletPath(), "");
 	}
@@ -100,7 +129,3 @@ public class controller {
 		}
 	}
   }
-
-    
-
-  

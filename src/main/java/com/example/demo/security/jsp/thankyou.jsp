@@ -12,7 +12,7 @@
         <div class="text-center">
             <p class="fs-3">Thank you for register with us.</p>
             <p class="lead">Please login using our sign in page. You will be re-direct to sign page in <span id="count">5</span></p>
-            <p><a href="/signin" class="btn btn-primary">Sign In</a></p>
+            <p><onclick=document.location='/signin' class="btn btn-primary">Sign In</a></p>
         </div>
     </div>
 	
