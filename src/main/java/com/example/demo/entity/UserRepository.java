@@ -36,7 +36,6 @@ public User findUserByEmail(String email);
 			+ " OR s.email LIKE '%' || :keyword || '%'"
 			+ " OR s.firstname LIKE '%' || :keyword || '%'"
 			+ " OR s.lastname LIKE '%' || :keyword || '%'"
-		
 			+ " OR s.company LIKE '%' || :keyword || '%'"
 			+ " OR s.city LIKE '%' || :keyword || '%'"
 			+ " OR s.country LIKE '%' || :keyword || '%'"
