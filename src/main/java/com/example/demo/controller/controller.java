@@ -1,8 +1,13 @@
 package com.example.demo.controller;
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
+import javax.mail.MessagingException;
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.security.core.annotation.CurrentSecurityContext;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -52,7 +57,8 @@ public class controller {
 			return "signup";
 		}
 		
-		// get dashboard page
+
+// get dashboard page
 		@GetMapping("/dashboard")
 		public String getDashboardPage(Model model, @CurrentSecurityContext(expression = "authentication?.name") String username) {
 			List<User> users = Service.retrieveAllUserProfile();
@@ -75,7 +81,8 @@ public class controller {
 		}
 		
 		   
-		// post method to process registration
+
+// post method to process registration
 		@PostMapping("/process_signup")
 		public String register(Model model, @ModelAttribute("user") User user) {
 			
@@ -87,7 +94,8 @@ public class controller {
 			
 			return "thankyou";
 		}
-		@PostMapping("/update-profile")
+
+	@PostMapping("/update-profile")
 	    public String updateUserProfile(Model model, @ModelAttribute("user") User tmp, @RequestParam("id") Integer user_id) {
 	        User user = Service.getUserById(user_id);
 
@@ -104,5 +112,20 @@ public class controller {
 			
 			
 			
-		
-}
+
+
+
+	private String getSiteURL(HttpServletRequest request) {
+		String siteURL = request.getRequestURL().toString();
+		return siteURL.replace(request.getServletPath(), "");
+	}
+
+	@GetMapping("/verify")
+	public String verifyUser(@Param("code") String code) {
+		if(Service.verify(code)) {
+			return "verify_success";
+		} else {
+			return "verify_fail";
+		}
+	}
+  }
