@@ -121,4 +121,8 @@ public class Service {
 			return true;
 		}
 	}
+	
+	public List<User> search(String keyword) {
+		return userRepository.search(keyword);
+	}
 }
