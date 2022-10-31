@@ -84,14 +84,9 @@ public class controller {
 
 // post method to process registration
 		@PostMapping("/process_signup")
-		public String register(Model model, @ModelAttribute("user") User user) {
-			
-			BCryptPasswordEncoder PasswordEncoder = new BCryptPasswordEncoder();
-			String encodedPassword = PasswordEncoder.encode(user.getPassword());
-			user.setPassword(encodedPassword);
-			
-			Service.saveUser(user);
-			
+		public String registerNewUser(User user, HttpServletRequest request)
+				throws UnsupportedEncodingException, MessagingException {
+			Service.register(user, getSiteURL(request));
 			return "thankyou";
 		}
 		
@@ -137,7 +132,76 @@ public class controller {
 		model.addAttribute("users", users);
 		//return "dashboard";
 	}
+	
+	@GetMapping("/forgot-password")
+	public String forgotPasswordPage() {
+		// show forgot password page, ask user to 
+		// enter verified registered email
+		return "forgot-password";
+	}
+	
+	@PostMapping("/forgot-password")
+	public String processForgotPassword(Model model, HttpServletRequest request) 
+			throws UnsupportedEncodingException, MessagingException {
+		
+		String email = request.getParameter("email");
+		
+		if(Service.getUserByEmail(email) != null) {
+			
+			Service.generateResetPasswordToken(email, getSiteURL(request));
+			model.addAttribute("error_success", "We have sent you a reset password link to your email. Please check.");
+		} else {
+			model.addAttribute("error_warning", "Opss!! user not found!");
+		}
+		
+		return "forgot-password";
+	}
+	
+	@GetMapping("/verify-reset-password")
+	public String verifyResetPasswordToken(@Param("code") String code) {
+		User user = Service.getUserByResetPasswordToken(code);
+		// if user exists, means verified user
+	    if (user != null) {
+	    	Service.resetPasswordToken(code);
+	    	String url = "redirect:reset-password?email=" + user.getEmail();
+	        return url;
+	    } else {
+	        return "redirect:verify-fail";
+	    }
+	}
+	
+	@GetMapping("/reset-password")
+	public String resetPasswordPage(Model model,
+			@Param("email") String email) {
+		model.addAttribute("email", email);
+		return "reset-password";
+	}
+	
+	@PostMapping("/reset-password")
+	public String processResetPassword(Model model, HttpServletRequest request) {
+		
+		String password = request.getParameter("password");
+		String cpassword = request.getParameter("cpassword");
+		String email = request.getParameter("email");
+		
+		if(password.equals(cpassword)) { // true, reset password
+			System.out.println("email = " + email); // debugging purposes
+			Service.updatePassword(email, cpassword);
+			
+			return "redirect:signin";
+			
+		} else { // false
+			model.addAttribute("error_warning", 
+					"hey!! password not match!! Try again.");
+			return "reset-password";
+		
+		}
+	}
 }
+		
+	
+
+
 			
 
 

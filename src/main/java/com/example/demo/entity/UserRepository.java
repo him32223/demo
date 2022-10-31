@@ -41,6 +41,11 @@ public User findUserByEmail(String email);
 			+ " OR s.country LIKE '%' || :keyword || '%'"
 			)
 	public List<User> search(@Param("keyword") String keyword);
+	
+	@Query("SELECT u FROM User u WHERE u.resetPasswordToken = ?1")
+	public User findUserByResetPasswordToken(String token);
+
 }
+
 
 	
