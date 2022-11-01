@@ -49,6 +49,7 @@ public class SecurityConfig {
 				.antMatchers(HttpMethod.GET, "/signup").permitAll()
 				.antMatchers(HttpMethod.GET, "/homepage").permitAll()
 				.antMatchers(HttpMethod.GET, "/dashboard").permitAll()
+				.antMatchers(HttpMethod.GET, "/index").permitAll()
 				.antMatchers(HttpMethod.GET, "/thankyou").permitAll()
 				.antMatchers(HttpMethod.GET, "/profile").permitAll()
 				.antMatchers(HttpMethod.GET, "/verify").permitAll()

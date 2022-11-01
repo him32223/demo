@@ -137,6 +137,7 @@ public class Service {
 	public User getUserByEmail(String email) {
 		return userRepository.findUserByEmail(email);
 	}
+	
 	// if user exists, generate reset password token
 	public void generateResetPasswordToken(String email, String siteURL) 
 			throws UnsupportedEncodingException, MessagingException {

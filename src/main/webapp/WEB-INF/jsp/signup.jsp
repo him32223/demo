@@ -31,6 +31,7 @@
                 <div class="form-group d-grid gap-2">
                     <button class="btn btn-success w-100" onclick=document.location='/signin'>Sign in</button>
                     <button  class="btn btn-success w-100"><a href='/thankyou'></a>Sign Up</button>
+                    <a href="/#">Return to homepage</a>
 
                 </div>
              

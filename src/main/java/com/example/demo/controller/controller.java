@@ -29,8 +29,8 @@ public class controller {
 
 	// get homepage
 		@GetMapping("/")
-		public String homepage() {
-			return "signup";
+		public String getHomePage() {
+			return "index";
 		}
 		
 		// get about page
@@ -53,9 +53,10 @@ public class controller {
 		
 		// get signup page
 		@GetMapping("/signup")
-		public String getSignUpPage() {
+		public String getSignupPage() {
 			return "signup";
 		}
+		
 		
 
 // get dashboard page
@@ -169,6 +170,10 @@ public class controller {
 	        return "redirect:verify-fail";
 	    }
 	}
+	@GetMapping("/verify-fail")
+	public String verifyFailPage() {
+		return "verify_fail";
+	}
 	
 	@GetMapping("/reset-password")
 	public String resetPasswordPage(Model model,
@@ -198,6 +203,7 @@ public class controller {
 		}
 	}
 }
+
 		
 	
 

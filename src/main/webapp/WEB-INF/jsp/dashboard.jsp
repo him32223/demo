@@ -58,7 +58,11 @@
                 </ul>
               </li>
       </ul>
-            <button type="button" class="btn btn-danger">Logout</button>
+      <form action="/logout" method="post">
+        <input type="hidden" name="${_csrf.parameterName}"
+        value="${_csrf.token}" />
+          <button type="submit" class="btn btn-danger">Logout</button>
+        </form>
         </div>
 
     </nav>

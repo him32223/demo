@@ -16,7 +16,6 @@
     
         <div class="card" style="width: 20rem; margin: auto;">
             <div class="card-body text-center">
-                <span class="navbar-brand mt-1 h1">Linked<span class="text-primary">Me</span>In</span>
                 <h4 class="mb-4">Forgot Password</h4>
                 <p>Please enter your registered email.<p>
                 <div class="form-group mt-2 mb-4">

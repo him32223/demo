@@ -34,6 +34,7 @@
                     <button type="submit" class="btn btn-success w-100"> Sign in with Email</button>
                     <button onclick=document.location='/signup' class="btn btn-success w-100"> Sign up with Email</button>
                     <a href="/forgot-password" class="text-primary">Forgot your password?</a>
+                    <a href="/#">Return to homepage</a>
                 </div>
                 
                 <c:if test="${error_string != null}">
@@ -45,6 +46,7 @@
                 <footer class="mt-5 text-muted">&copy; 2022.
                     <i class="fa-brands fa-github"></i>
                     <a href="https://github.com/him32223/demo">demo</a>
+                  
                 </footer>
             </div>
         </div>
