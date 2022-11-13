@@ -67,7 +67,7 @@
 
     </nav>
 
-    <section class="container col-lg-4" style="margin-top: 100px;">
+    <section class="container" style="margin-top: 100px;">
       <style>
         table {
           font-family: arial, sans-serif;
@@ -93,6 +93,7 @@
             <th scope="col">Username</th>
             <th scope="col">Email</th>
             <th scope="col">Password</th>
+            <th scope="col">Country</th>
           </tr>
         </thead>
         <tbody>
@@ -103,6 +104,7 @@
             <td>${user.username}</td>
             <td>${user.email}</td>
             <td>${user.password}</td>
+            <td>${user.country}</td>
           </tr>
           </c:forEach>
           </c:if>
