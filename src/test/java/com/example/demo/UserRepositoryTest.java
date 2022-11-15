@@ -33,9 +33,9 @@ public class UserRepositoryTest {
 	@Test
 	public void testCreateNewUser() {
 		User user = new User();
-		user.setUsername("test-admin");
-		user.setEmail("admin@example.com");
-		user.setPassword("password");
+		user.setUsername("bad");
+		user.setEmail("add@gmail.com");
+		user.setPassword("boo");
 		
 		User savedUser = entityManager.persistAndFlush(user); // retrive object using em
 		
@@ -51,7 +51,7 @@ public class UserRepositoryTest {
 	
 	@Test
 	public void testSearchByKeyword() {
-		String keyword = "penang";
+		String keyword = "bryan";
 		List<User> results = userRepo.search(keyword);
 		
 		assertThat(results.size()).isEqualTo(userRepo.search(keyword).size());
@@ -76,10 +76,10 @@ public class UserRepositoryTest {
 	
 	@Test
 	public void testDeleteUserById() {
-		User user = userRepo.findUserByUsername("test-admin");		
+		User user = userRepo.findUserByUsername("bad");		
 		userRepo.deleteById(user.getId()); // delete the user by id
 		
-		User deletedUser = userRepo.findUserByUsername("test-admin"); // test retrieve it back
+		User deletedUser = userRepo.findUserByUsername("bad"); // test retrieve it back
 		
 		assertThat(deletedUser).isEqualTo(null);
 	}
