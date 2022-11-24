@@ -57,12 +57,7 @@ public class controller {
 			return "signup";
 		}
 		
-		// get signup page
-				@GetMapping("/jobs")
-				public String getJobsPage() {
-					return "jobs";
-				}
-		
+	
 
 // get dashboard page
 		@GetMapping("/dashboard")

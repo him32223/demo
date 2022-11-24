@@ -68,11 +68,14 @@ public class SecurityConfig {
 				.loginProcessingUrl("/login")
 				.usernameParameter("email")
 				.defaultSuccessUrl("/dashboard")
+				.failureUrl("/signin-error")
 				.permitAll()
 				.and()
-				.logout()
-				.invalidateHttpSession(true)
+			.logout()
+				.logoutSuccessUrl("/signin")
+				.deleteCookies("JSESSIONID")
 				.permitAll();
+		
 	
 
 		

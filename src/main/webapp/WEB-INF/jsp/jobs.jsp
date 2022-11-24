@@ -46,20 +46,18 @@
         	</div>
         </section>
         
+        
         <section>
-        	<div class="container mt-3">
-					<c:url var="search_url" value="/dashboard" />
-					<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-                    <form:form role="search" action="${search_url}" method="post">
-                        <div class="input-group">
-                            	<input class="form-control" name="keyword" type="search" placeholder="Search" aria-label="Search">
-                            	<button class="btn btn-success me-2" type="submit">Search</button>
-                        </div>
-                    </form:form>
-            </div>
-        </section>
-
-        <section>
+			<div class="container mt-3">
+				<c:url var="search_url" value="/jobs" />
+				<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+				<form:form role="search" action="${search_url}" method="post">
+					<div class="input-group">
+							<input class="form-control" name="keyword" type="search" placeholder="Search" aria-label="Search">
+							<button class="btn btn-success me-2" type="submit">Search</button>
+					</div>
+				</form:form>
+		</div>
             <div class="container py-4 mb-5">
 
                 <h2>(<span modelattribute="count">${count}</span>) jobs available</h2>

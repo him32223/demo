@@ -140,4 +140,15 @@ public class PostController {
 		postService.updatePost(Integer.parseInt(post_id), post);
 		return "redirect:manage-post";
 	}
+	
+	@PostMapping("/jobs")
+	public void search(Model model, HttpServletRequest request) {
+		String keyword = request.getParameter("keyword");
+		List<Post> post = postService.search(keyword);
+		Integer count = post.size();
+		
+		model.addAttribute("count", count);
+		model.addAttribute("jobs", post);
+		
+	}
 }

@@ -5,7 +5,8 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
-import org.springframework.beans.factory.annotation.Autowired;import org.springframework.jca.support.LocalConnectionFactoryBean;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jca.support.LocalConnectionFactoryBean;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.entity.Post;
@@ -76,5 +77,8 @@ public class PostService {
 		post.setUpdatedOn(LocalDateTime.now());
 		postRepository.save(post);
 	}
-
+	
+	public List<Post> search(String keyword) {
+		return postRepository.search(keyword);
+	}
 }

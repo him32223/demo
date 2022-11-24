@@ -27,9 +27,7 @@
                     <li class="nav-item active">
                       <a href="/contact" class="nav-link">Contact</a>
                     </li>
-                    <li class="nav-item active">
-                      <a href="/jobs" class="nav-link">Jobs</a>
-                    </li>
+                   
                     <li class="nav-item active">
                       <a href="#" class="nav-link">Find</a>
                     </li>
@@ -58,6 +56,7 @@
                   <li><hr class="dropdown-divider"></li>
                   <li><a class="dropdown-item" href="/settings">Settings</a></li>
                   <li><a class="dropdown-item" href="/dashboard">Dashboard</a></li>
+                  <li><a class="dropdown-item" href="/jobs">Jobs</a></li>
                 </ul>
               </li>
       </ul>
@@ -95,7 +94,7 @@
             <th scope="col">#</th>
             <th scope="col">Username</th>
             <th scope="col">Email</th>
-            <th scope="col">Password</th>
+         
             <th scope="col">Country</th>
           </tr>
         </thead>
@@ -106,7 +105,7 @@
             <th scope="row">${user.id}</th>
             <td>${user.username}</td>
             <td>${user.email}</td>
-            <td>${user.password}</td>
+           
             <td>${user.country}</td>
           </tr>
           </c:forEach>

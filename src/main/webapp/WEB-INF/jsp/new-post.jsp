@@ -151,7 +151,7 @@
   				<input class="form-check-input" type="checkbox" value="" id="checkbox1">
   				<label class="form-check-label" for="flexCheckDefault">
     				<small class="form-text text-muted">I hereby declare that the information provided is true and correct. I also understand that any 
-    				willful dishonesty may render immediate removal of this job post and lawful consideration by LinkedMeIn Company.</small>
+    				willful dishonesty may render immediate removal of this job post and lawful consideration by Demo Company.</small>
   				</label>
 			</div>
 			<div class="form-check">
@@ -174,17 +174,13 @@
       <div class="container">
         <div class="row">
           <div class="col-8 d-flex justify-content-start">
-            <span>&copy; 2022. <a href="#">LinkedMeIn</a> portal.<br/>
-              Made with <i class="fa-solid fa-heart"></i> in Penang.<br/>
-              <i class="fa-brands fa-github"></i>
-              <a href="https://github.com/hadrihl/linkedmein"> linkedmein</a>
-            </span>
+			<span>&copy; 2022.
+				<i class="fa-brands fa-github"></i>
+				<a href="https://github.com/him32223/demo">demo</a>
+			  </span>
           </div>
 
-          <div class="col-4 d-flex justify-content-end">
-            <a href="#" class="me-2">Sitemap</a>
-            <a href="#">Policy</a>
-          </div>
+          
         </div>
       </div>
     </footer>
