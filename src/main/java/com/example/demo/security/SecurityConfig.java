@@ -53,6 +53,7 @@ public class SecurityConfig {
 				.antMatchers(HttpMethod.GET, "/thankyou").permitAll()
 				.antMatchers(HttpMethod.GET, "/profile").permitAll()
 				.antMatchers(HttpMethod.GET, "/verify").permitAll()
+				.antMatchers(HttpMethod.GET, "/jobs").permitAll()
 				.antMatchers(HttpMethod.GET, "/verify-fail").permitAll()
 				.antMatchers(HttpMethod.GET, "/forgot-password").permitAll()
 				.antMatchers(HttpMethod.POST, "/forgot-password").permitAll()

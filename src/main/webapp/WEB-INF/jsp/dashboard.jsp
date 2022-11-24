@@ -28,6 +28,9 @@
                       <a href="/contact" class="nav-link">Contact</a>
                     </li>
                     <li class="nav-item active">
+                      <a href="/jobs" class="nav-link">Jobs</a>
+                    </li>
+                    <li class="nav-item active">
                       <a href="#" class="nav-link">Find</a>
                     </li>
                 </ul>
