@@ -4,11 +4,14 @@ package com.example.demo.entity;
 
 
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 @Entity
 @Table(name = "user")
@@ -27,6 +30,15 @@ public class User {
 	private String city;
 	private String country;
 
+	@Column(name = "img")
+	private String img;
+	
+	@Column(name = "bio")
+	private String bio;
+	
+	@OneToMany(mappedBy = "user")
+	private List<Post> posts;
+	
 	@Column(name = "verification_code", length = 64)
 	private String verificationCode;
 
@@ -107,5 +119,24 @@ public class User {
 	}
 	public void setResetPasswordToken(String resetPasswordToken) {
 		this.resetPasswordToken = resetPasswordToken;
+	}
+	public String getImg() {
+		return img;
+	}
+	public void setImg(String img) {
+		this.img = img;
+	}
+	
+	public String getBio() {
+		return bio;
+	}
+	public void setBio(String bio) {
+		this.bio = bio;
+	}
+	public List<Post> getPosts() {
+		return posts;
+	}
+	public void setPosts(List<Post> posts) {
+		this.posts = posts;
 	}
 }

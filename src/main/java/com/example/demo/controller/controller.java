@@ -57,7 +57,7 @@ public class controller {
 			return "signup";
 		}
 		
-		
+	
 
 // get dashboard page
 		@GetMapping("/dashboard")
