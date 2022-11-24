@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <nav class="navbar navbar-expand-lg bg-light">
             <div class="container-fluid">
-                <span class="navbar-brand mt-1 h1">Linked<span class="text-primary">Me</span>In</span>
+                <span class="navbar-brand mt-1 h1">de<span class="text-primary">Mo</span></span>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -11,15 +11,18 @@
 
                 <div class="collapse navbar-collapse" id="navbarScroll">
                     <ul class="navbar-nav me-auto my-2 my-lg-0" style="--bs-scroll-height: 100px;">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/">Home</a>
+                        <li class="nav-item active">
+                            <a href="#" class="nav-link">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/about">About</a>
+                        <li class="nav-item active">
+                            <a href="/about" class="nav-link">About</a>
                         </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="/contact">Contact</a>
+                        <li class="nav-item active">
+                          <a href="/contact" class="nav-link">Contact</a>
+                        </li>
+                       
+                        <li class="nav-item active">
+                          <a href="#" class="nav-link">Find</a>
                         </li>
                     </ul>
                     
@@ -32,7 +35,7 @@
                                 <c:out value="${username}" />
                             </a>
                             <ul class="dropdown-menu dropdown-menu-lg-end bg-light" >
-                                <li><a class="dropdown-item" href="/profile?id=${user_id}" modelattribute="user_id">
+                                <li><a class="dropdown-item" href="/profile?id=${user.id}" modelattribute="user.id">
                                 	<i class="fa-solid fa-user"></i>
                                 	Profile</a>
                                 </li>
